@@ -1,0 +1,12 @@
+<% content_for :title do  %>
+  Edit a Connection
+<% end %>
+
+<p>Here you can edit connections</p>
+
+<%= simple_form_for @connection, :html => {:class => 'form-horizontal' } do |f| %>
+  <%= f.input :starting_room_id %>
+  <%= f.input :ending_room_id %>
+  <%= f.input :connection_name %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,10 @@
+<% content_for :title do  %>
+  <%= @item.name || "Untitled Item" %>
+<% end %>
+
+<p id='description'>
+  <%= @item.description %>
+</p>
+
+
+<div id="background_image"><img src="<%= @room.background_image %>"></div>

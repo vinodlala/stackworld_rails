@@ -1,0 +1,13 @@
+<% content_for :title do  %>
+  Create a Connection
+<% end %>
+
+<p>Here you can create a connection</p>
+
+<%= simple_form_for @connection, :html => {:class => 'form-horizontal' } do |f| %>
+
+  <%= f.association :starting_room %>
+  <%= f.association :ending_room %>
+  <%= f.input :connection_name %>
+  <%= f.button :submit %>
+<% end %>

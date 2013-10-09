@@ -1,0 +1,21 @@
+<% content_for :title do  %>
+  <%= @room.name || "Untitled Room" %>
+<% end %>
+
+<p id='description'>
+  <%= @room.description %>
+</p>
+
+<% if !@room.connections.empty? %>
+  You see a few exits:
+  <ul>
+    <% @room.connections.each do |c| %>
+      <li><a href="/rooms/<%= c.ending_room.id %>"><%= c.connection_name %> - <%= c.ending_room.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  You've reached the end of your journey.  There's no escape!
+<% end %>
+
+
+<div id="background_image"><img src="<%= @room.background_image %>"></div>

@@ -1,0 +1,10 @@
+<% content_for :title do  %>
+  <%= @connection.name || "Untitled Connection" %>
+<% end %>
+
+<p id='description'>
+  <%= @connection.connection_name %>
+</p>
+
+
+<div id="background_image"><img src="<%= @room.background_image %>"></div>
