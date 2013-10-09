@@ -1,4 +1,32 @@
 StackworldRails::Application.routes.draw do
+  get "items/new"
+  get "items/edit"
+  get "items/show"
+  get "players/new"
+  get "players/edit"
+  get "players/show"
+  get "connections/new"
+
+# get '/room/:room_id/connections/new' do
+#   @title = "Create a Connection"
+#   # Find the room the user was standing in
+#   @room = Room.find(params[:room_id])
+
+#   # Find all rooms so we can show them in a select form
+#   @all_rooms = Room.all
+#   erb :create_connection
+# end
+
+  get "connections/edit"
+  get "connections/show"
+  get "rooms/new"
+  get "rooms/edit"
+  get "rooms/show"
+  root :to => "rooms#show"
+  resources :rooms
+  resources :connections
+  resources :items
+  resources :players
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +67,7 @@ StackworldRails::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

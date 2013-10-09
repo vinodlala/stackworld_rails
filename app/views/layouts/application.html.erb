@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>StackworldRails</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <title>StackWorld</title>
+    <%= stylesheet_link_tag  "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <div id="wrapper">
 
-</body>
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand"><a href="#">StackWorld</a></li>
+          <li><a href="/rooms/new">Create a new room</a></li>
+          <li><a href="/players/new">Create a new player</a></li>
+          <li><a href="/connections/new">Create a new connection</a></li>
+          <li><a href="/items/new">Create a new item</a></li>
+          <% if @room %>
+            <li><a href="/room/<%= @room.id %>/connections/new">Add Connection (using /room/room.id)</a></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+        <div class="content-header">
+          <h1>
+            <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+            <%= content_for?(:title) ? yield(:title) : "Unnamed Room" %>
+          </h1>
+        </div>
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+          <div class="row">
+            <div class="col-md-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+
+    <!-- Put this into a custom JavaScript file to make things more organized -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+  </body>
 </html>
