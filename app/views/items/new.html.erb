@@ -5,6 +5,13 @@
 <p>Here you can create an item</p>
 
 <%= simple_form_for @item, :html => {:class => 'form-horizontal' } do |f| %>
+
+  <% if false %>
+  <%= f.input :starting_room_id, :as => :hidden, :input_html => { :value => @room.id } %>
+  <% end %>
+
+
+
   <%= f.association :room %>
   <%= f.input :name %>
   <%= f.input :image_url %>

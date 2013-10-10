@@ -5,10 +5,19 @@
 <p>Here you can edit items</p>
 
 <%= simple_form_for @item, :html => {:class => 'form-horizontal' } do |f| %>
+
+<% if false %>
+<select>
+<% @item.each do |item| %>
+  <option><%= item.name %></option>
+<% end %>
+<% end %>
+
   <%= f.input :name %>
   <%= f.input :image_url %>
   <%= f.input :description %>
   <%= f.input :x_coord %>
   <%= f.input :y_coord %>
   <%= f.button :submit %>
+  <%= f.association :room %>
 <% end %>

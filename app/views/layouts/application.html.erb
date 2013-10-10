@@ -13,13 +13,48 @@
       <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
           <li class="sidebar-brand"><a href="#">StackWorld</a></li>
+
           <li><a href="/rooms/new">Create a new room</a></li>
+
           <li><a href="/players/new">Create a new player</a></li>
+
           <li><a href="/connections/new">Create a new connection</a></li>
+
           <li><a href="/items/new">Create a new item</a></li>
+
           <% if @room %>
-            <li><a href="/room/<%= @room.id %>/connections/new">Add Connection (using /room/room.id)</a></li>
+            <li><a href="/rooms/<%= @room.id %>/edit">Edit this room</a></li>
           <% end %>
+
+          <% if false %>
+            <li><a href="/rooms/edit">Edit a room</a></li>
+          <% end %>
+
+          <li><a href="/players/edit">Edit a player</a></li>
+
+          <li><a href="/connections/edit">Edit a connection</a></li>
+
+          <li><a href="/items/edit">Edit an item</a></li>
+
+          <% if false %>
+            <% if @room %>
+              <li><a href="/room/<%= @room.id %>/connections/new">Add Connection (using /room/room.id)</a></li>
+            <% end %>
+          <% end %>
+
+
+    <li>If @player code under this:</li>
+
+    <% if @player %>
+      <li>You are <%= @player.name %></li>
+      <li><img src="<%= @player.avatar_image %>"></li>
+    <% end %>
+
+
+
+
+
+
         </ul>
       </div>
 

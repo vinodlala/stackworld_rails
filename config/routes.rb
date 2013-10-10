@@ -16,11 +16,11 @@ StackworldRails::Application.routes.draw do
 #   @all_rooms = Room.all
 #   erb :create_connection
 # end
-
   get "connections/edit"
   get "connections/show"
   get "rooms/new"
   get "rooms/edit"
+  # get "rooms/edit" => 'rooms#roomtoedit'
   get "rooms/show"
   root :to => "rooms#show"
   resources :rooms

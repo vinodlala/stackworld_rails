@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.first
+    # @item = Item.all
+#    @item = Item.find(params[:id])
   end
 
   def update

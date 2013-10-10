@@ -17,5 +17,10 @@
   You've reached the end of your journey.  There's no escape!
 <% end %>
 
+<% @room.items.each do |item| %>
+  <div data-toggle="tooltip" title="<%= item.name %>: <%= item.description %>" onmouseover="$(this).tooltip()" style="position:absolute; top: <%= item.y_coord %>px; left: <%= item.x_coord %>px">
+    <img src="<%= item.image_url %>">
+  </div>
+<% end %>
 
 <div id="background_image"><img src="<%= @room.background_image %>"></div>

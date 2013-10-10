@@ -6,6 +6,10 @@
 
 <%= simple_form_for @room, :html => {:class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
+  <% if false %>
+  <%= f.association :name %>
+  <% end %>
+
   <%= f.input :description %>
   <%= f.input :background_image %>
   <%= f.button :submit %>

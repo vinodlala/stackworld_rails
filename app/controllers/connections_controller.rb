@@ -4,7 +4,8 @@ class ConnectionsController < ApplicationController
   end
 
   def edit
-    @connection = Connection.find(params[:id])
+    @connection = Connection.first
+    # @connection = Connection.find(params[:id])
   end
 
   def update

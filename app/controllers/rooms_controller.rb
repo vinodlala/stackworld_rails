@@ -4,10 +4,12 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    # @room = Room.new
     @room = Room.find(params[:id])
   end
 
   def update
+    # @room = Room.new(room_params)
     @room = Room.find(params[:id])
 
     if @room.update_attributes(room_params)
@@ -25,6 +27,10 @@ class RoomsController < ApplicationController
       @room = Room.first
     end
   end
+
+  # def roomtoedit
+  #   @rooms = Room.all
+  # end
 
   def create
     @room = Room.new(room_params)

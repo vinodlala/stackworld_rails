@@ -1,0 +1,11 @@
+<% content_for :title do  %>
+  Pick room to edit
+<% end %>
+
+<p>Here you can edit a room</p>
+
+<select>
+<% @rooms.each do |room| %>
+  <option><%= room.name %></option>
+<% end %>
+</select>
